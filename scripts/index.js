@@ -1,5 +1,3 @@
-var btnSubmit = document.getElementById('btnSubmit');
-
 function login() {
   var nickname = $("#nickname").val();
 
@@ -17,13 +15,13 @@ function login() {
 }
 
 function reset_users() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "http://www.angelito.com.br/webchat/reset_users", true);
-  xhttp.send();
+  $.get("http://www.angelito.com.br/webchat/reset_users", function(data) {
+    alert('Usuários desconectados!');
+  });
 }
 
 function reset_messages() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "http://www.angelito.com.br/webchat/reset_messages", true);
-  xhttp.send();
+  $.get("http://www.angelito.com.br/webchat/reset_messages", function(data) {
+    alert('Mensagens apagadas!');
+  });
 }
