@@ -18,24 +18,13 @@
       </div>
       <div id="online_users">
       </div>
-      <div class="messages">
-        <div id="messages">
-          <div class="content left">
-            <span class="user">
-            <span class="date">[11/11/2017] 09:00</span>
-            "chatbot diz:"
-            </span>
-            <span class="message">Olá! Bem vindo ao CHAT!</span>
-          </div>
-          <div></div>
-          <div></div>
-        </div>
+      <div id="messages">
       </div>
     </div>
     <div class="footer">
       <div class="container">
-        <input type="text" name="textmsg" id="textmsg" onkeypress="event.keyCode == 13 ? send_message('textmsg'): null" placeholder="Escreva sua mensagem...">
-        <button class="btn btn-submit" type="submit" name="btnEnter" onclick="send_message('textmsg')">Enviar</button>
+        <input type="text" name="textmsg" id="textmsg" placeholder="Escreva sua mensagem...">
+        <button id="btn_send" class="btn btn-submit" type="submit" name="btnEnter">Enviar</button>
       </div>
     </div>
   </div>

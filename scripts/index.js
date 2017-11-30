@@ -1,3 +1,23 @@
+$("html").ready(function() {
+  $("#btnSubmit").click(function() {
+    login();
+  });
+
+  $("#btnResetUsers").click(function() {
+    reset_users();
+  });
+
+  $("#btnResetMsg").click(function() {
+    reset_messages();
+  });
+
+  $("#nickname").keypress(function(event) {
+    if (event.which == 13) {
+      login();
+    }
+  });
+});
+
 function login() {
   var nickname = $("#nickname").val();
 
