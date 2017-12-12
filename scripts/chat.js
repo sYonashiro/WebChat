@@ -26,16 +26,15 @@ function load_user() {
 function load_users() {
   $.get("http://www.angelito.com.br/webchat/users", function(data) {
     var users = JSON.parse(data);
-    var online_users = 'Usuarios conectados: ';
+    //var online_users = 'Usuarios conectados: ';
     for (i = 0; i < users.length; i++) {
-      if (i != 0) {
-        online_users += ' | ' + users[i];
+      if (i === 0) {
+        $(".list-group").html("<li class=\"list-group-item\"><img src=\"images/user.png\"></img>" + " &nbsp" + users[i] + "</li>");
       }
       else {
-        online_users += users[i];
+        $(".list-group").append("<li class=\"list-group-item\"><img src=\"images/user.png\"></img>" + " &nbsp" + users[i] + "</li>");
       }
     }
-    $("#online_users").html(online_users);
   });
 }
 
@@ -51,11 +50,20 @@ function load_messages() {
 
     var messages = JSON.parse(data);
     for (var i = 0; i < messages.length; i++) {
-      if (i === 0) {
-        $("#messages").html("<div class=\"message\"><span class=\"user\"><span class=\"date\"><b>" + messages[i].datetime + "</b></span><b> \"" + messages[i].user + " diz:\"</b></span><br><span class=\"message\">" + messages[i].textmsg + "</span></div>");
+      var messageHtml = '';
+
+      if (messages[i].user === localStorage.getItem('user')) {
+        messageHtml = "<div class=\"alert alert-primary my-2 p-2 ml-5 mr-3\"><span class=\"user\"><span class=\"date\"><b>" + messages[i].datetime + "</b></span><b> \"" + messages[i].user + " diz:\"</b></span><br><span class=\"message\">" + messages[i].textmsg + "</span></div>";
       }
       else {
-        $("#messages").append("<div class=\"message\"><span class=\"user\"><span class=\"date\"><b>" + messages[i].datetime + "</b></span><b> \"" + messages[i].user + " diz:\"</b></span><br><span class=\"message\">" + messages[i].textmsg + "</span></div>");
+        messageHtml = "<div class=\"alert alert-secondary my-2 p-2 mr-5 ml-1\"><span class=\"user\"><span class=\"date\"><b>" + messages[i].datetime + "</b></span><b> \"" + messages[i].user + " diz:\"</b></span><br><span class=\"message\">" + messages[i].textmsg + "</span></div>";
+      }
+
+      if (i === 0) {
+        $("#messages").html(messageHtml);
+      }
+      else {
+        $("#messages").append(messageHtml);
       }
     }
   });

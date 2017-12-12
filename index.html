@@ -1,23 +1,36 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/style.css">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
-  <div id="container" class="container">
-    <a href="index.html">
-      <img src="images/logo.png">
+<body class="index">
+  <nav class="navbar navbar-dark bg-primary justify-content-center">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/new-logo.png" width="80">
     </a>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8 offset-sm-2 col-md-4 offset-md-4">
+        <div class="card mt-3">
+          <div class="card-header">
+            <h3 class="card-title">Bem-vindo ao CHAT!</h4>
+            <h5 class="card-subtitle mb-2 text-muted">Conecte-se e converse com diversas pessoas e faça novos amigos.</h6>
+            <p class="card-text">Digite seu nickname e entre na sala do chat.</p>
+          </div>
+          <div class="card-body">
+            <input id="nickname" class="form-control mb-2" type="text" name="nickname" placeholder="Qual o seu nome?" required="">
+            <button id="btnSubmit" class="btn btn-info btn-block mb-2" type="submit" name="btnEnter">Entrar</button>
+            <button id="btnResetUsers" class="btn btn-danger btn-block mb-2" type="button" name="btnReset">Desconectar usuários</button>
+            <button id="btnResetMsg" class="btn btn-success btn-block mb-2" type="button" name="btnReset">Limpar mensagens</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="container">
-    <input id="nickname" type="text" name="nickname" placeholder="Qual seu nome?" required="">
-    <button id="btnSubmit" class="btn btn-submit" type="submit" name="btnEnter">ENVIAR</button>
-    <button id="btnResetUsers" class="btn" type="button" name="btnReset">DESCONECTAR USUÁRIOS</button>
-    <button id="btnResetMsg" class="btn" type="button" name="btnReset">LIMPAR MENSAGENS</button>
-  </div>
-
   <script src="scripts/index.js"></script>
 </body>
 </html>

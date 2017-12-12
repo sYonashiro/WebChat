@@ -4,29 +4,56 @@
 <head>
   <meta charset="utf-8">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body id="chat">
-  <div class="container">
-    <div class="header">
-      <a href="index.html">
-        <img src="images/logo.png" width="70%">
-      </a>
-      <div id="chat_user">
+  <nav class="navbar navbar-dark bg-primary justify-content-center">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/new-logo.png" width="80">
+    </a>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mt-3">
+          <div class="card-header">
+            <h5 class="card-title">Usuários conectados</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+          </ul>
+        </div>
       </div>
-      <div id="online_users">
-      </div>
-      <div id="messages">
+      <div class="col-md-8">
+        <div class="card mt-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-1">
+                <img src="images/my-user.png"></img>
+              </div>
+              <div class="col-md-4 text-left ml-0">
+                <h5 id="chat_user" class="card-title"></h5>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-3 card-messages">
+            <div id="messages" class="card-list-message">
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="input-group">
+              <input id="textmsg" type="text" class="form-control" placeholder="Escreva sua mensagem">
+              <span class="input-group-btn">
+                <button id="btn_send" class="btn btn-primary" type="submit"><img src="images/btn-send.png"> Enviar</button>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="footer">
-      <div class="container">
-        <input type="text" name="textmsg" id="textmsg" placeholder="Escreva sua mensagem...">
-        <button id="btn_send" class="btn btn-submit" type="submit" name="btnEnter">Enviar</button>
-      </div>
-    </div>
+  </div>
   </div>
   <script src="scripts/chat.js"></script>
 </body>
